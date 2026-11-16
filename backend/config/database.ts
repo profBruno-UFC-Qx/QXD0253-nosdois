@@ -1,9 +1,8 @@
-/** @import { Core } from '@strapi/strapi' */
+import path from 'path';
+import type { Core } from '@strapi/strapi';
+import { isDatabaseClientKind } from '@strapi/database';
 
-const path = require('path');
-const { isDatabaseClientKind } = require('@strapi/database');
-
-module.exports = ({ env }) => {
+const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Database => {
   const client = env('DATABASE_CLIENT', 'sqlite');
 
   if (!isDatabaseClientKind(client)) {
@@ -12,8 +11,7 @@ module.exports = ({ env }) => {
     );
   }
 
-  /** @type {Record<Core.Config.Database.ClientKind, Core.Config.Database['connection']>} */
-  const connections = {
+  const connections: Record<Core.Config.Database.ClientKind, Core.Config.Database['connection']> = {
     mysql: {
       client: 'mysql',
       connection: {
@@ -57,7 +55,7 @@ module.exports = ({ env }) => {
     sqlite: {
       client: 'sqlite',
       connection: {
-        filename: path.join(__dirname, '..', env('DATABASE_FILENAME', '.tmp/data.db')),
+        filename: path.join(__dirname, '..', '..', env('DATABASE_FILENAME', '.tmp/data.db')),
       },
       useNullAsDefault: true,
     },
@@ -70,3 +68,5 @@ module.exports = ({ env }) => {
     },
   };
 };
+
+export default config;
