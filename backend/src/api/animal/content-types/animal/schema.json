@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "animals",
+  "info": {
+    "singularName": "animal",
+    "pluralName": "animals",
+    "displayName": "Animal"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true
+    },
+    "ativo": {
+      "type": "boolean",
+      "default": true
+    },
+    "brinco": {
+      "type": "string",
+      "unique": true
+    },
+    "sexo": {
+      "type": "enumeration",
+      "enum": [
+        "macho",
+        "femea"
+      ]
+    },
+    "categoria": {
+      "type": "enumeration",
+      "enum": [
+        "vaca",
+        "bezerro",
+        "novilho",
+        "garrote"
+      ]
+    },
+    "dataNascimento": {
+      "type": "date"
+    },
+    "motivoInativacao": {
+      "type": "enumeration",
+      "enum": [
+        "venda",
+        "morte",
+        "descarte"
+      ]
+    },
+    "produtor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "animais"
+    },
+    "registro_producaos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::registro-producao.registro-producao",
+      "mappedBy": "animal"
+    }
+  }
+}
