@@ -480,6 +480,94 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAnimalAnimal extends Struct.CollectionTypeSchema {
+  collectionName: 'animals';
+  info: {
+    displayName: 'Animal';
+    pluralName: 'animals';
+    singularName: 'animal';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    ativo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    brinco: Schema.Attribute.String & Schema.Attribute.Unique;
+    categoria: Schema.Attribute.Enumeration<
+      ['vaca', 'bezerro', 'novilho', 'garrote']
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dataNascimento: Schema.Attribute.Date;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::animal.animal'
+    > &
+      Schema.Attribute.Private;
+    motivoInativacao: Schema.Attribute.Enumeration<
+      ['venda', 'morte', 'descarte']
+    >;
+    nome: Schema.Attribute.String & Schema.Attribute.Required;
+    produtor: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    registro_producaos: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::registro-producao.registro-producao'
+    >;
+    sexo: Schema.Attribute.Enumeration<['macho', 'femea']>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiRegistroProducaoRegistroProducao
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'registros_producao';
+  info: {
+    displayName: 'RegistroProducao';
+    pluralName: 'registros-producao';
+    singularName: 'registro-producao';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    animal: Schema.Attribute.Relation<'manyToOne', 'api::animal.animal'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    data: Schema.Attribute.Date & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::registro-producao.registro-producao'
+    > &
+      Schema.Attribute.Private;
+    produtor: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    volumeLitros: Schema.Attribute.Decimal &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0.01;
+        },
+        number
+      >;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -962,6 +1050,7 @@ export interface PluginUsersPermissionsUser
     timestamps: true;
   };
   attributes: {
+    animais: Schema.Attribute.Relation<'oneToMany', 'api::animal.animal'>;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -986,6 +1075,10 @@ export interface PluginUsersPermissionsUser
       }>;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    registro_producaos: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::registro-producao.registro-producao'
+    >;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;
     role: Schema.Attribute.Relation<
       'manyToOne',
@@ -1015,6 +1108,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::animal.animal': ApiAnimalAnimal;
+      'api::registro-producao.registro-producao': ApiRegistroProducaoRegistroProducao;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
