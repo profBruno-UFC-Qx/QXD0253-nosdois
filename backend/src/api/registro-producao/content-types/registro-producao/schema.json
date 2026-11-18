@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "registros_producao",
+  "info": {
+    "singularName": "registro-producao",
+    "pluralName": "registros-producao",
+    "displayName": "RegistroProducao"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "data": {
+      "type": "date",
+      "required": true
+    },
+    "volumeLitros": {
+      "type": "decimal",
+      "required": true,
+      "min": 0.01
+    },
+    "animal": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::animal.animal",
+      "inversedBy": "registro_producaos"
+    },
+    "produtor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "registro_producaos"
+    }
+  }
+}
