@@ -1,13 +1,190 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fazenda Digital</title>
-  <link rel="stylesheet" href="/src/style.css" />
-</head>
-<body>
-  <main id="app"></main>
-  <script type="module" src="/src/index.ts"></script>
-</body>
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fazenda Digital</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <header class="topo">
+      <div class="container topo-conteudo">
+        <a class="logo" href="/index.html">Fazenda Digital</a>
+
+        <nav class="topo-nav">
+          <a href="#por-que-usar">Por que usar</a>
+          <a href="#funcionalidades">Funcionalidades</a>
+          <a href="#como-funciona">Como funciona</a>
+        </nav>
+
+        <div class="topo-acoes">
+          <a
+            class="btn btn-contorno"
+            href="src/pages/usuario/login-cadastro/login.html"
+            data-visitante
+            >Entrar</a
+          >
+          <a
+            class="btn"
+            href="src/pages/usuario/login-cadastro/cadastro.html"
+            data-visitante
+            >Criar conta</a
+          >
+          <a class="btn" href="/animais.html" data-logado hidden
+            >Ir para o sistema</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-conteudo">
+          <div class="hero-texto">
+            <span class="etiqueta">Simples, gratuito e fácil de usar</span>
+            <h1>
+              Controle a produção de leite da sua fazenda sem depender do
+              caderno.
+            </h1>
+            <p>
+              Cadastre seus animais, anote os litros do dia e consulte o
+              histórico de forma simples, organizada e segura.
+            </p>
+            <div class="hero-botoes">
+              <a
+                class="btn"
+                href="src/pages/usuario/login-cadastro/cadastro.html"
+                data-visitante
+                >Começar agora</a
+              >
+              <a class="btn" href="/animais.html" data-logado hidden
+                >Ir para o sistema</a
+              >
+              <a class="btn btn-contorno" href="#como-funciona"
+                >Ver como funciona</a
+              >
+            </div>
+          </div>
+          <img
+            class="hero-foto"
+            src="https://i.pinimg.com/736x/df/7d/b5/df7db5f83a4c913feab9cb3300b76e0c.jpg"
+            alt="Homem ordenhado vaca"
+            width="900"
+            height="1200"
+          />
+        </div>
+      </section>
+
+      <section id="por-que-usar" class="secao secao-branca">
+        <div class="container">
+          <h2>Do caderno ao digital</h2>
+          <p class="secao-descricao">
+            Veja como o sistema resolve os problemas das anotações feitas à mão.
+          </p>
+
+          <div class="comparativo">
+            <div class="card">
+              <h3>Com o caderno</h3>
+              <ul class="lista">
+                <li>Folhas que molham, rasgam ou se perdem.</li>
+                <li>
+                  Difícil saber quanto cada vaca produziu nos meses anteriores.
+                </li>
+                <li>Contas feitas de cabeça, sujeitas a erros.</li>
+                <li>Sem histórico organizado para decidir sobre o rebanho.</li>
+              </ul>
+            </div>
+
+            <div class="card solucao">
+              <h3>Com a Fazenda Digital</h3>
+              <ul class="lista">
+                <li>Anotações guardadas com segurança no sistema.</li>
+                <li>Histórico de produção fácil de consultar.</li>
+                <li>
+                  Registro simples, para quem tem pouca prática com tecnologia.
+                </li>
+                <li>Registros errados podem ser corrigidos ou apagados.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="funcionalidades" class="secao">
+        <div class="container">
+          <h2>O que o sistema faz</h2>
+          <p class="secao-descricao">
+            Ferramentas essenciais para organizar a produção, sem menus
+            complicados.
+          </p>
+
+          <ul class="recursos">
+            <li class="card">
+              <h3>Cadastro de animais</h3>
+              <p>
+                Registre nome, brinco, categoria e data de nascimento de cada
+                animal.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Registro diário de leite</h3>
+              <p>Anote os litros produzidos no dia, no total ou por vaca.</p>
+            </li>
+            <li class="card">
+              <h3>Histórico de produção</h3>
+              <p>
+                Consulte os dias anteriores e acompanhe a evolução do rebanho.
+              </p>
+            </li>
+            <li class="card">
+              <h3>Editar e excluir</h3>
+              <p>
+                Anotou algo errado? Corrija ou apague o registro rapidamente.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="como-funciona" class="secao secao-branca">
+        <div class="container">
+          <h2>Como funciona</h2>
+
+          <ol class="passos">
+            <li class="card">
+              <span class="passo-numero">1</span>
+              <h3>Cadastre seus animais</h3>
+              <p>Monte a lista do seu rebanho com os dados de cada animal.</p>
+            </li>
+            <li class="card">
+              <span class="passo-numero">2</span>
+              <h3>Anote os litros do dia</h3>
+              <p>
+                Depois da ordenha, registre a quantidade de leite produzida.
+              </p>
+            </li>
+            <li class="card">
+              <span class="passo-numero">3</span>
+              <h3>Acompanhe o histórico</h3>
+              <p>
+                Veja a produção por período e corrija registros quando precisar.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="container">
+        <p>Fazenda Digital · Projeto acadêmico</p>
+        <p>
+          Jean Oliveira dos Santos e Kauã Bernardino Lima · Engenharia de
+          Software
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/pages/index.ts"></script>
+  </body>
 </html>

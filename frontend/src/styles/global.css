@@ -1,0 +1,96 @@
+:root {
+  --cor-primaria: #1e4d2b;
+  --cor-primaria-escura: #163b20;
+  --cor-clara: #e1f2e8;
+  --cor-fundo: #faf8f5;
+  --cor-superficie: #ffffff;
+  --cor-borda: #e7e0d6;
+  --cor-texto: #1e293b;
+  --cor-texto-suave: #475569;
+  --cor-erro: #c62828;
+  --raio: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.card {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 1.5rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.campo input,
+.campo select {
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--raio);
+  font: inherit;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border: 2px solid var(--cor-primaria);
+  border-radius: var(--raio);
+  background: var(--cor-primaria);
+  color: #ffffff;
+  font: inherit;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--cor-primaria-escura);
+  border-color: var(--cor-primaria-escura);
+}
+
+.btn-contorno {
+  background: transparent;
+  color: var(--cor-primaria);
+}
+
+.btn-contorno:hover {
+  background: var(--cor-clara);
+  color: var(--cor-primaria);
+}
+
+.erro {
+  margin-bottom: 1rem;
+  color: var(--cor-erro);
+}

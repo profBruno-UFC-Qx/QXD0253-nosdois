@@ -1,0 +1,593 @@
+/* ==========================================================================
+   FAZENDA DIGITAL - ESTILOS DE AUTENTICAÇÃO (LOGIN E CADASTRO)
+   Identidade Visual inspirada diretamente no Dashboard Oficial
+   ========================================================================== */
+
+:root {
+  /* Cores da Sidebar e Marca da Dashboard */
+  --brand-dark: #012b1d;
+  --brand-dark-deep: #001f15;
+  --brand-dark-surface: #043827;
+  --brand-accent: #10b981;
+  --brand-accent-glow: rgba(16, 185, 129, 0.25);
+  --brand-muted: #7da593;
+  --brand-light: #e4eee9;
+
+  /* Botão primário oficial ("+ Registrar coleta") */
+  --btn-primary-bg: #014d33;
+  --btn-primary-hover: #013b28;
+
+  /* Superfície da Dashboard */
+  --bg-canvas: #f2f6f4;
+  --bg-card: #ffffff;
+  --text-title: #0f1d16;
+  --text-body: #4a5951;
+  --text-muted: #6f8077;
+
+  /* Bordas e Inputs */
+  --border-light: #e3eae5;
+  --border-input: #cfd8d2;
+  --border-focus: #10b981;
+
+  /* Badges */
+  --badge-green-bg: #dcfce7;
+  --badge-green-text: #15803d;
+  --badge-blue-bg: #eff6ff;
+  --badge-blue-text: #2563eb;
+
+  /* Alertas */
+  --alert-error-bg: #fef2f2;
+  --alert-error-border: #fecaca;
+  --alert-error-text: #991b1b;
+  --alert-success-bg: #f0fdf4;
+  --alert-success-border: #bbf7d0;
+  --alert-success-text: #166534;
+
+  /* Raios e Transições */
+  --radius-panel: 20px;
+  --radius-card: 16px;
+  --radius-btn: 10px;
+  --radius-input: 10px;
+  --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset Básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-canvas);
+  color: var(--text-body);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL SPLIT (ESQUERDA: MARCA / DIREITA: FORMULÁRIO)
+   ========================================================================== */
+
+.auth-layout {
+  display: flex;
+  width: 100%;
+  max-width: 1040px;
+  min-height: 640px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-panel);
+  box-shadow: 0 20px 45px -10px rgba(1, 43, 29, 0.08), 0 0 1px 1px var(--border-light);
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   PAINEL VISUAL DA MARCA (SIDEBAR ESQUERDA)
+   ========================================================================== */
+
+.auth-brand-panel {
+  flex: 1.05;
+  background: linear-gradient(165deg, var(--brand-dark) 0%, #023826 60%, var(--brand-dark-deep) 100%);
+  color: white;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito sutil de luz de fundo */
+.auth-brand-panel::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Logo da Fazenda Digital */
+.brand-header {
+  margin-bottom: 2.5rem;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-icon {
+  width: 46px;
+  height: 46px;
+  background-color: var(--brand-dark-surface);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.brand-titles .brand-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.brand-titles .brand-tagline {
+  font-size: 0.82rem;
+  color: var(--brand-muted);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* Conteúdo Central */
+.brand-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #a7f3d0;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+  margin-bottom: 1.25rem;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--brand-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--brand-accent);
+}
+
+.brand-headline {
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.85rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.brand-description {
+  font-size: 0.95rem;
+  color: var(--brand-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Widget Mockup (Card da Dashboard) */
+.preview-widget {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-card);
+  padding: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.preview-widget-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.preview-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.preview-icon.blue {
+  background-color: rgba(37, 99, 235, 0.18);
+}
+
+.preview-icon.green {
+  background-color: rgba(16, 185, 129, 0.18);
+}
+
+.preview-info {
+  flex-grow: 1;
+}
+
+.preview-label {
+  display: block;
+  font-size: 0.78rem;
+  color: #b1cfc2;
+}
+
+.preview-value {
+  display: block;
+  font-size: 1.25rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.preview-status-pill {
+  background-color: var(--badge-green-bg);
+  color: var(--badge-green-text);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+}
+
+.preview-widget-footer {
+  display: flex;
+  gap: 1.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.82rem;
+  color: #c9ded5;
+}
+
+.turno-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.brand-footer {
+  margin-top: 2rem;
+  font-size: 0.78rem;
+  color: #5d7e6f;
+}
+
+/* ==========================================================================
+   PAINEL DO FORMULÁRIO (DIREITA)
+   ========================================================================== */
+
+.auth-form-panel {
+  flex: 1.15;
+  background-color: var(--bg-card);
+  padding: 3rem 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+.form-header {
+  margin-bottom: 2rem;
+}
+
+.form-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-title);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+}
+
+.form-header p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* Caixa de Alerta */
+.alert-box {
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-input);
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.alert-box.alert-error {
+  background-color: var(--alert-error-bg);
+  border: 1px solid var(--alert-error-border);
+  color: var(--alert-error-text);
+}
+
+.alert-box.alert-success {
+  background-color: var(--alert-success-bg);
+  border: 1px solid var(--alert-success-border);
+  color: var(--alert-success-text);
+}
+
+.alert-box.hidden {
+  display: none;
+}
+
+/* Campos do Formulário */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-group label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-title);
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: var(--transition);
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 0.75rem 2.8rem 0.75rem 2.7rem;
+  font-size: 0.95rem;
+  color: var(--text-title);
+  background-color: #fafcfb;
+  border: 1.5px solid var(--border-input);
+  border-radius: var(--radius-input);
+  transition: var(--transition);
+  outline: none;
+}
+
+.input-wrapper input:focus {
+  background-color: #ffffff;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3.5px var(--brand-accent-glow);
+}
+
+.input-wrapper input:focus + .input-icon,
+.input-wrapper input:focus ~ .input-icon {
+  color: var(--brand-primary-bg);
+}
+
+.btn-toggle-senha {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.btn-toggle-senha:hover {
+  color: var(--text-title);
+}
+
+/* Opções adicionais (Checkbox & Links) */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-box {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--border-input);
+  border-radius: 4px;
+  background-color: #fafcfb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.checkbox-wrapper input:checked ~ .checkbox-box {
+  background-color: var(--brand-primary-bg);
+  border-color: var(--brand-primary-bg);
+}
+
+.checkbox-wrapper input:checked ~ .checkbox-box::after {
+  content: '';
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+.checkbox-text {
+  color: var(--text-body);
+}
+
+.link-secundario {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: var(--transition);
+}
+
+.link-secundario:hover {
+  color: var(--brand-primary-bg);
+  text-decoration: underline;
+}
+
+/* Botão Primário ("Entrar na Fazenda" / "Criar Conta") */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background-color: var(--btn-primary-bg);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-btn);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(1, 77, 51, 0.2);
+  transition: var(--transition);
+  margin-top: 0.5rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(1, 77, 51, 0.28);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Rodapé do Formulário */
+.form-footer {
+  text-align: center;
+  margin-top: 1.8rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.link-destaque {
+  color: var(--brand-primary-bg);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.link-destaque:hover {
+  color: var(--brand-accent);
+  text-decoration: underline;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE & TABLETS)
+   ========================================================================== */
+
+@media (max-width: 880px) {
+  body {
+    padding: 1rem;
+  }
+
+  .auth-layout {
+    flex-direction: column;
+    max-width: 480px;
+  }
+
+  .auth-brand-panel {
+    padding: 2rem 1.5rem;
+  }
+
+  .brand-content {
+    display: none; /* Em telas pequenas, foca na marca e no formulário */
+  }
+
+  .brand-footer {
+    display: none;
+  }
+
+  .auth-form-panel {
+    padding: 2.25rem 1.5rem;
+  }
+}
