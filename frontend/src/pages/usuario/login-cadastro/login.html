@@ -1,121 +1,125 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrar - Fazenda Digital</title>
+    <link rel="stylesheet" href="../../../styles/global.css" />
+    <link rel="stylesheet" href="./login-cadastro.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entrar - Fazenda Digital</title>
-  <link rel="stylesheet" href="./login-cadastro.css" />
-</head>
-
-<body>
-  <div class="auth-layout">
-    <!-- Painel Visual à Esquerda (Identidade Visual da Dashboard) -->
-    <aside class="auth-brand-panel">
-      <div class="brand-header">
-        <div class="brand-logo">
-          <div class="logo-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 17c3-3 7-3 10 0 3-3 7-3 8 0" stroke="#10b981" stroke-linecap="round" />
-              <path d="M3 13c3-3 7-3 10 0 3-3 7-3 8 0" stroke="#34d399" stroke-linecap="round" />
-              <path d="M7 8a4 4 0 0 1 8 0" stroke="#a7f3d0" stroke-linecap="round" />
-            </svg>
-          </div>
-          <div class="brand-titles">
-            <h1 class="brand-name">Fazenda Digital</h1>
-            <p class="brand-tagline">Gestão simples para o seu rebanho</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="brand-content">
-
-        <h2 class="brand-headline">O controle do seu rebanho e produção, direto e sem papel</h2>
-        <p class="brand-description">Substitua anotações em cadernos por um registro digital organizado, seguro e
-          acessível para o dia a dia no campo.</p>
-
-      </div>
-
-      <footer class="brand-footer">
-        <p>© 2026 Fazenda Digital • Pecuária Leiteira Inteligente</p>
-      </footer>
-    </aside>
-
-    <!-- Painel do Formulário à Direita -->
-    <main class="auth-form-panel">
-      <div class="auth-card">
-        <div class="form-header">
-          <h2>Bem-vindo de volta</h2>
-          <p>Informe suas credenciais para acessar sua propriedade.</p>
-        </div>
-
-        <div id="alerta-feedback" class="alert-box hidden" role="alert"></div>
-
-        <form id="form-login" class="auth-form" novalidate>
-          <div class="form-group">
-            <label for="campo-identificador">Usuário ou E-mail</label>
-            <div class="input-wrapper">
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              </span>
-              <input type="text" id="campo-identificador" name="identifier"
-                placeholder="Ex: joaosilva ou joao@fazenda.com" required autocomplete="username" />
+  <body>
+    <div class="auth-layout">
+      <aside class="auth-brand-panel">
+        <div class="brand-header">
+          <a href="../../../index.html" class="brand-logo">
+            <div class="logo-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 17c3-3 7-3 10 0 3-3 7-3 8 0" stroke="#ffffff" stroke-linecap="round" />
+                <path d="M3 13c3-3 7-3 10 0 3-3 7-3 8 0" stroke="#e1f2e8" stroke-linecap="round" />
+                <path d="M7 8a4 4 0 0 1 8 0" stroke="#c3e5d2" stroke-linecap="round" />
+              </svg>
             </div>
+            <div class="brand-titles">
+              <h1 class="brand-name">Fazenda Digital</h1>
+              <p class="brand-tagline">Gestão simples para o seu rebanho</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="brand-content">
+          <h2 class="brand-headline">O controle do seu rebanho e produção, direto e sem papel</h2>
+          <p class="brand-description">
+            Substitua anotações em cadernos por um registro digital organizado, seguro e acessível para o dia a dia no campo.
+          </p>
+        </div>
+
+        <footer class="brand-footer">
+          <p>© 2026 Fazenda Digital • Pecuária Leiteira Inteligente</p>
+        </footer>
+      </aside>
+
+      <main class="auth-form-panel">
+        <div class="auth-card">
+          <div class="form-header">
+            <h2>Bem-vindo de volta</h2>
+            <p>Informe suas credenciais para acessar sua propriedade.</p>
           </div>
 
-          <div class="form-group">
-            <div class="label-row">
+          <div id="alerta-feedback" class="alert-box hidden" role="alert"></div>
+
+          <form id="form-login" class="auth-form" novalidate>
+            <div class="form-group">
+              <label for="campo-identificador">Usuário ou E-mail</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  id="campo-identificador"
+                  name="identifier"
+                  placeholder="Ex: joaosilva ou joao@fazenda.com"
+                  required
+                  autocomplete="username"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
               <label for="campo-senha">Senha</label>
-              <a href="#" class="link-secundario" tabindex="-1">Esqueceu a senha?</a>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                </span>
+                <input
+                  type="password"
+                  id="campo-senha"
+                  name="password"
+                  placeholder="Digite sua senha"
+                  required
+                  autocomplete="current-password"
+                />
+                <button
+                  type="button"
+                  class="btn-toggle-senha"
+                  id="btn-toggle-senha"
+                  title="Mostrar ou ocultar senha"
+                  aria-label="Mostrar ou ocultar senha"
+                >
+                  <svg id="icone-olho" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
             </div>
-            <div class="input-wrapper">
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                </svg>
-              </span>
-              <input type="password" id="campo-senha" name="password" placeholder="Digite sua senha" required
-                autocomplete="current-password" />
-              <button type="button" class="btn-toggle-senha" id="btn-toggle-senha" title="Mostrar ou ocultar senha"
-                aria-label="Mostrar ou ocultar senha">
-                <svg id="icone-olho" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-              </button>
-            </div>
+
+            <button type="submit" id="btn-submit" class="btn-primary">
+              <span>Entrar na Fazenda</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </button>
+          </form>
+
+          <div class="form-footer">
+            <p>
+              Ainda não tem conta de produtor?
+              <a href="./cadastro.html" class="link-destaque">Cadastre-se</a>
+            </p>
           </div>
-
-          <div class="form-options">
-            <label class="checkbox-wrapper">
-              <input type="checkbox" id="lembrar-acesso" />
-              <span class="checkbox-box"></span>
-              <span class="checkbox-text">Lembrar meu acesso</span>
-            </label>
-          </div>
-
-          <button type="submit" id="btn-submit" class="btn-primary">
-            <span>Entrar na Fazenda</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </button>
-        </form>
-
-        <div class="form-footer">
-          <p>Ainda não tem conta de produtor? <a href="./cadastro.html" class="link-destaque">Cadastre-se</a></p>
         </div>
-      </div>
-    </main>
-  </div>
+      </main>
+    </div>
 
-  <script type="module" src="./login.ts"></script>
-</body>
-
+    <script type="module" src="./login.ts"></script>
+  </body>
 </html>

@@ -1,137 +1,167 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastrar Produtor - Fazenda Digital</title>
+    <link rel="stylesheet" href="../../../styles/global.css" />
+    <link rel="stylesheet" href="./login-cadastro.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cadastrar Produtor - Fazenda Digital</title>
-  <link rel="stylesheet" href="./login-cadastro.css" />
-</head>
-
-<body>
-  <div class="auth-layout">
-    <!-- Painel Visual à Esquerda (Identidade Visual da Dashboard) -->
-    <aside class="auth-brand-panel">
-      <div class="brand-header">
-        <div class="brand-logo">
-          <div class="logo-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 17c3-3 7-3 10 0 3-3 7-3 8 0" stroke="#10b981" stroke-linecap="round" />
-              <path d="M3 13c3-3 7-3 10 0 3-3 7-3 8 0" stroke="#34d399" stroke-linecap="round" />
-              <path d="M7 8a4 4 0 0 1 8 0" stroke="#a7f3d0" stroke-linecap="round" />
-            </svg>
-          </div>
-          <div class="brand-titles">
-            <h1 class="brand-name">Fazenda Digital</h1>
-            <p class="brand-tagline">Gestão simples para o seu rebanho</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="brand-content">
-
-        <h2 class="brand-headline">Comece a gerenciar seu rebanho hoje mesmo</h2>
-        <p class="brand-description">Crie sua conta em poucos instantes e tenha visão clara da ordenha diária e do
-          rebanho em um só lugar.</p>
-      </div>
-
-      <footer class="brand-footer">
-        <p>© 2026 Fazenda Digital • Pecuária Leiteira Inteligente</p>
-      </footer>
-    </aside>
-
-    <!-- Painel do Formulário à Direita -->
-    <main class="auth-form-panel">
-      <div class="auth-card">
-        <div class="form-header">
-          <h2>Criar Conta de Produtor</h2>
-          <p>Preencha os campos abaixo para cadastrar sua conta.</p>
+  <body>
+    <div class="auth-layout">
+      <aside class="auth-brand-panel">
+        <div class="brand-header">
+          <a href="../../../index.html" class="brand-logo">
+            <div class="logo-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 17c3-3 7-3 10 0 3-3 7-3 8 0" stroke="#ffffff" stroke-linecap="round" />
+                <path d="M3 13c3-3 7-3 10 0 3-3 7-3 8 0" stroke="#e1f2e8" stroke-linecap="round" />
+                <path d="M7 8a4 4 0 0 1 8 0" stroke="#c3e5d2" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="brand-titles">
+              <h1 class="brand-name">Fazenda Digital</h1>
+              <p class="brand-tagline">Gestão simples para o seu rebanho</p>
+            </div>
+          </a>
         </div>
 
-        <div id="alerta-feedback" class="alert-box hidden" role="alert"></div>
-
-        <form id="form-cadastro" class="auth-form" novalidate>
-          <div class="form-group">
-            <label for="campo-usuario">Nome de Usuário *</label>
-            <div class="input-wrapper">
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
-              </span>
-              <input type="text" id="campo-usuario" name="username" placeholder="Ex: joaosilva" required
-                autocomplete="username" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="campo-email">E-mail *</label>
-            <div class="input-wrapper">
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-              </span>
-              <input type="email" id="campo-email" name="email" placeholder="Ex: joao@fazenda.com" required
-                autocomplete="email" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="campo-senha">Senha *</label>
-            <div class="input-wrapper">
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                </svg>
-              </span>
-              <input type="password" id="campo-senha" name="password" placeholder="Mínimo de 6 caracteres" minlength="6"
-                required autocomplete="new-password" />
-              <button type="button" class="btn-toggle-senha" id="btn-toggle-senha" title="Mostrar ou ocultar senha"
-                aria-label="Mostrar ou ocultar senha">
-                <svg id="icone-olho" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="2">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="campo-confirmar-senha">Confirmar Senha *</label>
-            <div class="input-wrapper">
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                  <polyline points="22 4 12 14.01 9 11.01" />
-                </svg>
-              </span>
-              <input type="password" id="campo-confirmar-senha" name="confirmPassword"
-                placeholder="Digite a senha novamente" minlength="6" required autocomplete="new-password" />
-            </div>
-          </div>
-
-          <button type="submit" id="btn-submit" class="btn-primary">
-            <span>Criar Conta de Produtor</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </button>
-        </form>
-
-        <div class="form-footer">
-          <p>Já possui uma conta? <a href="./login.html" class="link-destaque">Fazer login</a></p>
+        <div class="brand-content">
+          <h2 class="brand-headline">Comece a gerenciar seu rebanho hoje mesmo</h2>
+          <p class="brand-description">
+            Crie sua conta em poucos instantes e tenha visão clara da ordenha diária e do rebanho em um só lugar.
+          </p>
         </div>
-      </div>
-    </main>
-  </div>
 
-  <script type="module" src="./cadastro.ts"></script>
-</body>
+        <footer class="brand-footer">
+          <p>© 2026 Fazenda Digital • Pecuária Leiteira Inteligente</p>
+        </footer>
+      </aside>
 
+      <main class="auth-form-panel">
+        <div class="auth-card">
+          <div class="form-header">
+            <h2>Criar Conta de Produtor</h2>
+            <p>Preencha os campos abaixo para cadastrar sua conta.</p>
+          </div>
+
+          <div id="alerta-feedback" class="alert-box hidden" role="alert"></div>
+
+          <form id="form-cadastro" class="auth-form" novalidate>
+            <div class="form-group">
+              <label for="campo-usuario">Nome de Usuário *</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  id="campo-usuario"
+                  name="username"
+                  placeholder="Ex: joaosilva"
+                  required
+                  autocomplete="username"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="campo-email">E-mail *</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                </span>
+                <input
+                  type="email"
+                  id="campo-email"
+                  name="email"
+                  placeholder="Ex: joao@fazenda.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="campo-senha">Senha *</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                </span>
+                <input
+                  type="password"
+                  id="campo-senha"
+                  name="password"
+                  placeholder="Mínimo de 6 caracteres"
+                  minlength="6"
+                  required
+                  autocomplete="new-password"
+                />
+                <button
+                  type="button"
+                  class="btn-toggle-senha"
+                  id="btn-toggle-senha"
+                  title="Mostrar ou ocultar senha"
+                  aria-label="Mostrar ou ocultar senha"
+                >
+                  <svg id="icone-olho" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="campo-confirmar-senha">Confirmar Senha *</label>
+              <div class="input-wrapper">
+                <span class="input-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </span>
+                <input
+                  type="password"
+                  id="campo-confirmar-senha"
+                  name="confirmPassword"
+                  placeholder="Digite a senha novamente"
+                  minlength="6"
+                  required
+                  autocomplete="new-password"
+                />
+              </div>
+            </div>
+
+            <button type="submit" id="btn-submit" class="btn-primary">
+              <span>Criar Conta de Produtor</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </button>
+          </form>
+
+          <div class="form-footer">
+            <p>
+              Já possui uma conta?
+              <a href="./login.html" class="link-destaque">Fazer login</a>
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="./cadastro.ts"></script>
+  </body>
 </html>
