@@ -1,57 +1,4 @@
-/* ==========================================================================
-   FAZENDA DIGITAL - ESTILOS DE AUTENTICAÇÃO (LOGIN E CADASTRO)
-   Identidade Visual inspirada diretamente no Dashboard Oficial
-   ========================================================================== */
 
-:root {
-  /* Cores da Sidebar e Marca da Dashboard */
-  --brand-dark: #012b1d;
-  --brand-dark-deep: #001f15;
-  --brand-dark-surface: #043827;
-  --brand-accent: #10b981;
-  --brand-accent-glow: rgba(16, 185, 129, 0.25);
-  --brand-muted: #7da593;
-  --brand-light: #e4eee9;
-
-  /* Botão primário oficial ("+ Registrar coleta") */
-  --btn-primary-bg: #014d33;
-  --btn-primary-hover: #013b28;
-
-  /* Superfície da Dashboard */
-  --bg-canvas: #f2f6f4;
-  --bg-card: #ffffff;
-  --text-title: #0f1d16;
-  --text-body: #4a5951;
-  --text-muted: #6f8077;
-
-  /* Bordas e Inputs */
-  --border-light: #e3eae5;
-  --border-input: #cfd8d2;
-  --border-focus: #10b981;
-
-  /* Badges */
-  --badge-green-bg: #dcfce7;
-  --badge-green-text: #15803d;
-  --badge-blue-bg: #eff6ff;
-  --badge-blue-text: #2563eb;
-
-  /* Alertas */
-  --alert-error-bg: #fef2f2;
-  --alert-error-border: #fecaca;
-  --alert-error-text: #991b1b;
-  --alert-success-bg: #f0fdf4;
-  --alert-success-border: #bbf7d0;
-  --alert-success-text: #166534;
-
-  /* Raios e Transições */
-  --radius-panel: 20px;
-  --radius-card: 16px;
-  --radius-btn: 10px;
-  --radius-input: 10px;
-  --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Reset Básico */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -59,9 +6,9 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--bg-canvas);
-  color: var(--text-body);
+  font-family: Arial, sans-serif;
+  background-color: var(--cor-fundo, #faf8f5);
+  color: var(--cor-texto, #1e293b);
   line-height: 1.5;
   min-height: 100vh;
   display: flex;
@@ -70,29 +17,29 @@ body {
   padding: 1.5rem;
 }
 
-/* ==========================================================================
-   LAYOUT PRINCIPAL SPLIT (ESQUERDA: MARCA / DIREITA: FORMULÁRIO)
-   ========================================================================== */
 
 .auth-layout {
   display: flex;
   width: 100%;
   max-width: 1040px;
-  min-height: 640px;
-  background-color: var(--bg-card);
-  border-radius: var(--radius-panel);
-  box-shadow: 0 20px 45px -10px rgba(1, 43, 29, 0.08), 0 0 1px 1px var(--border-light);
+  min-height: 620px;
+  background-color: var(--cor-superficie, #ffffff);
+  border: 1px solid var(--cor-borda, #e7e0d6);
+  border-radius: calc(var(--raio, 10px) * 2);
+  box-shadow: 0 20px 45px -10px rgba(22, 59, 32, 0.12);
   overflow: hidden;
 }
 
-/* ==========================================================================
-   PAINEL VISUAL DA MARCA (SIDEBAR ESQUERDA)
-   ========================================================================== */
+
 
 .auth-brand-panel {
   flex: 1.05;
-  background: linear-gradient(165deg, var(--brand-dark) 0%, #023826 60%, var(--brand-dark-deep) 100%);
-  color: white;
+  background: linear-gradient(
+    165deg,
+    var(--cor-primaria, #1e4d2b) 0%,
+    var(--cor-primaria-escura, #163b20) 100%
+  );
+  color: #ffffff;
   padding: 3rem 2.5rem;
   display: flex;
   flex-direction: column;
@@ -101,7 +48,6 @@ body {
   overflow: hidden;
 }
 
-/* Efeito sutil de luz de fundo */
 .auth-brand-panel::before {
   content: '';
   position: absolute;
@@ -109,27 +55,28 @@ body {
   right: -20%;
   width: 320px;
   height: 320px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(225, 242, 232, 0.14) 0%, transparent 70%);
   pointer-events: none;
 }
 
-/* Logo da Fazenda Digital */
 .brand-header {
   margin-bottom: 2.5rem;
 }
 
 .brand-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 1rem;
+  color: inherit;
+  text-decoration: none;
 }
 
 .logo-icon {
   width: 46px;
   height: 46px;
-  background-color: var(--brand-dark-surface);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(225, 242, 232, 0.28);
+  border-radius: var(--raio, 10px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,43 +91,16 @@ body {
 }
 
 .brand-titles .brand-tagline {
-  font-size: 0.82rem;
-  color: var(--brand-muted);
-  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--cor-borda-clara, #c3e5d2);
   margin-top: 2px;
 }
 
-/* Conteúdo Central */
 .brand-content {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.brand-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: rgba(16, 185, 129, 0.12);
-  color: #a7f3d0;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  padding: 0.35rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  width: fit-content;
-  margin-bottom: 1.25rem;
-}
-
-.badge-dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--brand-accent);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--brand-accent);
 }
 
 .brand-headline {
@@ -194,100 +114,20 @@ body {
 
 .brand-description {
   font-size: 0.95rem;
-  color: var(--brand-muted);
+  color: var(--cor-clara, #e1f2e8);
   line-height: 1.6;
   margin-bottom: 2rem;
 }
 
-/* Widget Mockup (Card da Dashboard) */
-.preview-widget {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius-card);
-  padding: 1.25rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-.preview-widget-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.preview-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.preview-icon.blue {
-  background-color: rgba(37, 99, 235, 0.18);
-}
-
-.preview-icon.green {
-  background-color: rgba(16, 185, 129, 0.18);
-}
-
-.preview-info {
-  flex-grow: 1;
-}
-
-.preview-label {
-  display: block;
-  font-size: 0.78rem;
-  color: #b1cfc2;
-}
-
-.preview-value {
-  display: block;
-  font-size: 1.25rem;
-  color: #ffffff;
-  font-weight: 700;
-}
-
-.preview-status-pill {
-  background-color: var(--badge-green-bg);
-  color: var(--badge-green-text);
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.2rem 0.6rem;
-  border-radius: 12px;
-}
-
-.preview-widget-footer {
-  display: flex;
-  gap: 1.25rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 0.82rem;
-  color: #c9ded5;
-}
-
-.turno-item {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
 .brand-footer {
   margin-top: 2rem;
-  font-size: 0.78rem;
-  color: #5d7e6f;
+  font-size: 0.8rem;
+  color: var(--cor-borda-clara, #c3e5d2);
 }
-
-/* ==========================================================================
-   PAINEL DO FORMULÁRIO (DIREITA)
-   ========================================================================== */
 
 .auth-form-panel {
   flex: 1.15;
-  background-color: var(--bg-card);
+  background-color: var(--cor-superficie, #ffffff);
   padding: 3rem 3.5rem;
   display: flex;
   align-items: center;
@@ -306,45 +146,43 @@ body {
 .form-header h2 {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--text-title);
+  color: var(--cor-texto, #1e293b);
   letter-spacing: -0.02em;
   margin-bottom: 0.4rem;
 }
 
 .form-header p {
-  color: var(--text-muted);
+  color: var(--cor-texto-suave, #475569);
   font-size: 0.92rem;
 }
 
-/* Caixa de Alerta */
 .alert-box {
   padding: 0.85rem 1rem;
-  border-radius: var(--radius-input);
-  font-size: 0.88rem;
+  border-radius: var(--raio, 10px);
+  font-size: 0.9rem;
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.25s ease;
 }
 
 .alert-box.alert-error {
-  background-color: var(--alert-error-bg);
-  border: 1px solid var(--alert-error-border);
-  color: var(--alert-error-text);
+  background-color: var(--cor-erro-fundo, #fef2f2);
+  border: 1px solid var(--cor-erro-borda, #fecaca);
+  color: var(--cor-erro, #c62828);
 }
 
 .alert-box.alert-success {
-  background-color: var(--alert-success-bg);
-  border: 1px solid var(--alert-success-border);
-  color: var(--alert-success-text);
+  background-color: var(--cor-sucesso-fundo, #e1f2e8);
+  border: 1px solid var(--cor-sucesso-borda, #c3e5d2);
+  color: var(--cor-primaria-escura, #163b20);
 }
 
 .alert-box.hidden {
   display: none;
 }
 
-/* Campos do Formulário */
 .auth-form {
   display: flex;
   flex-direction: column;
@@ -358,15 +196,9 @@ body {
 }
 
 .form-group label {
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  color: var(--text-title);
-}
-
-.label-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  color: var(--cor-texto, #1e293b);
 }
 
 .input-wrapper {
@@ -378,35 +210,35 @@ body {
 .input-icon {
   position: absolute;
   left: 14px;
-  color: var(--text-muted);
+  color: var(--cor-texto-suave, #475569);
   display: flex;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  transition: var(--transition);
+  transition: color 0.2s ease;
 }
 
 .input-wrapper input {
   width: 100%;
   padding: 0.75rem 2.8rem 0.75rem 2.7rem;
   font-size: 0.95rem;
-  color: var(--text-title);
-  background-color: #fafcfb;
-  border: 1.5px solid var(--border-input);
-  border-radius: var(--radius-input);
-  transition: var(--transition);
+  font-family: inherit;
+  color: var(--cor-texto, #1e293b);
+  background-color: var(--cor-fundo, #faf8f5);
+  border: 1.5px solid var(--cor-borda-campo, #cbd5e1);
+  border-radius: var(--raio, 10px);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   outline: none;
 }
 
 .input-wrapper input:focus {
-  background-color: #ffffff;
-  border-color: var(--border-focus);
-  box-shadow: 0 0 0 3.5px var(--brand-accent-glow);
+  background-color: var(--cor-superficie, #ffffff);
+  border-color: var(--cor-primaria, #1e4d2b);
+  box-shadow: 0 0 0 3.5px var(--cor-foco-sombra, rgba(30, 77, 43, 0.18));
 }
 
-.input-wrapper input:focus + .input-icon,
 .input-wrapper input:focus ~ .input-icon {
-  color: var(--brand-primary-bg);
+  color: var(--cor-primaria, #1e4d2b);
 }
 
 .btn-toggle-senha {
@@ -414,86 +246,20 @@ body {
   right: 12px;
   background: none;
   border: none;
-  color: var(--text-muted);
+  color: var(--cor-texto-suave, #475569);
   cursor: pointer;
   padding: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
-  transition: var(--transition);
+  transition: color 0.2s ease;
 }
 
 .btn-toggle-senha:hover {
-  color: var(--text-title);
+  color: var(--cor-texto, #1e293b);
 }
 
-/* Opções adicionais (Checkbox & Links) */
-.form-options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.85rem;
-}
-
-.checkbox-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-.checkbox-wrapper input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.checkbox-box {
-  width: 18px;
-  height: 18px;
-  border: 1.5px solid var(--border-input);
-  border-radius: 4px;
-  background-color: #fafcfb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-}
-
-.checkbox-wrapper input:checked ~ .checkbox-box {
-  background-color: var(--brand-primary-bg);
-  border-color: var(--brand-primary-bg);
-}
-
-.checkbox-wrapper input:checked ~ .checkbox-box::after {
-  content: '';
-  width: 5px;
-  height: 9px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-  margin-bottom: 2px;
-}
-
-.checkbox-text {
-  color: var(--text-body);
-}
-
-.link-secundario {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.82rem;
-  transition: var(--transition);
-}
-
-.link-secundario:hover {
-  color: var(--brand-primary-bg);
-  text-decoration: underline;
-}
-
-/* Botão Primário ("Entrar na Fazenda" / "Criar Conta") */
 .btn-primary {
   display: flex;
   align-items: center;
@@ -501,22 +267,23 @@ body {
   gap: 0.6rem;
   width: 100%;
   padding: 0.85rem 1.5rem;
-  background-color: var(--btn-primary-bg);
+  background-color: var(--cor-primaria, #1e4d2b);
   color: #ffffff;
   border: none;
-  border-radius: var(--radius-btn);
+  border-radius: var(--raio, 10px);
+  font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(1, 77, 51, 0.2);
-  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(30, 77, 43, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   margin-top: 0.5rem;
 }
 
 .btn-primary:hover {
-  background-color: var(--btn-primary-hover);
+  background-color: var(--cor-primaria-escura, #163b20);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(1, 77, 51, 0.28);
+  box-shadow: 0 6px 16px rgba(22, 59, 32, 0.28);
 }
 
 .btn-primary:active {
@@ -529,27 +296,25 @@ body {
   transform: none;
 }
 
-/* Rodapé do Formulário */
 .form-footer {
   text-align: center;
   margin-top: 1.8rem;
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--cor-texto-suave, #475569);
 }
 
 .link-destaque {
-  color: var(--brand-primary-bg);
+  color: var(--cor-primaria, #1e4d2b);
   font-weight: 600;
   text-decoration: none;
-  transition: var(--transition);
+  transition: color 0.2s ease;
 }
 
 .link-destaque:hover {
-  color: var(--brand-accent);
+  color: var(--cor-primaria-escura, #163b20);
   text-decoration: underline;
 }
 
-/* Animações */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -560,10 +325,6 @@ body {
     transform: translateY(0);
   }
 }
-
-/* ==========================================================================
-   RESPONSIVIDADE (MOBILE & TABLETS)
-   ========================================================================== */
 
 @media (max-width: 880px) {
   body {
@@ -579,10 +340,7 @@ body {
     padding: 2rem 1.5rem;
   }
 
-  .brand-content {
-    display: none; /* Em telas pequenas, foca na marca e no formulário */
-  }
-
+  .brand-content,
   .brand-footer {
     display: none;
   }

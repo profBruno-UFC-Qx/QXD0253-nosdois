@@ -2,12 +2,20 @@
   --cor-primaria: #1e4d2b;
   --cor-primaria-escura: #163b20;
   --cor-clara: #e1f2e8;
+  --cor-borda-clara: #c3e5d2;
   --cor-fundo: #faf8f5;
   --cor-superficie: #ffffff;
   --cor-borda: #e7e0d6;
+  --cor-borda-campo: #cbd5e1;
   --cor-texto: #1e293b;
   --cor-texto-suave: #475569;
   --cor-erro: #c62828;
+  --cor-erro-fundo: #fef2f2;
+  --cor-erro-borda: #fecaca;
+  --cor-sucesso: var(--cor-primaria);
+  --cor-sucesso-fundo: var(--cor-clara);
+  --cor-sucesso-borda: var(--cor-borda-clara);
+  --cor-foco-sombra: rgba(30, 77, 43, 0.18);
   --raio: 10px;
 }
 
@@ -56,7 +64,7 @@ img {
 .campo input,
 .campo select {
   padding: 0.6rem;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--cor-borda-campo);
   border-radius: var(--raio);
   font: inherit;
 }
