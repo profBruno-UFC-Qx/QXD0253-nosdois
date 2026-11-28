@@ -1,13 +1,14 @@
-import "../styles/index.css";
+import '../styles/index.css';
+import { authService } from '../service/authService';
 
-const logado = localStorage.getItem("token") !== null;
+const logado = authService.estaAutenticado();
 
 document
-  .querySelectorAll<HTMLElement>("[data-visitante]")
+  .querySelectorAll<HTMLElement>('[data-visitante]')
   .forEach((elemento) => {
     elemento.hidden = logado;
   });
 
-document.querySelectorAll<HTMLElement>("[data-logado]").forEach((elemento) => {
+document.querySelectorAll<HTMLElement>('[data-logado]').forEach((elemento) => {
   elemento.hidden = !logado;
 });

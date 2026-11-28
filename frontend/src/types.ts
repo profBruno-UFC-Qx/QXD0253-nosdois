@@ -21,3 +21,29 @@ export interface RegistroProducao {
 export interface Resposta<T> {
   data: T;
 }
+
+export type Papel = "produtor" | "vaqueiro" | (string & {});
+
+export interface PapelUsuario {
+  id: number;
+  documentId?: string;
+  name: string;
+  type: string;
+  description?: string | null;
+}
+
+export interface Usuario {
+  id: number;
+  documentId?: string;
+  username: string;
+  email: string;
+  provider?: string;
+  confirmed?: boolean;
+  blocked?: boolean;
+  role?: PapelUsuario | null;
+}
+
+export interface AuthResposta {
+  jwt: string;
+  user: Usuario;
+}
